@@ -24,7 +24,7 @@ if [ "$CPU_CORES" -lt 2 ]; then
 fi
 
 RAM_TOTAL=$(free -m | awk '/^Mem:/{print $2}')
-if [ "$RAM_TOTAL" -lt 2900 ]; then
+if [ "$RAM_TOTAL" -lt 3900 ]; then
   echo "❌ RAM kurang dari 4 GB. Diperlukan minimal 4 GB!"
   exit 1
 fi
