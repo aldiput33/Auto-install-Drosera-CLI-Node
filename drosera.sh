@@ -30,7 +30,7 @@ if [ "$RAM_TOTAL" -lt 3900 ]; then
 fi
 
 DISK_FREE=$(df -BG / | tail -1 | awk '{print $4}' | sed 's/G//')
-if [ "$DISK_FREE" -lt 20 ]; then
+if [ "$DISK_FREE" -lt 10 ]; then
   echo "❌ Disk space kurang dari 20 GB. Diperlukan minimal 20 GB!"
   exit 1
 fi
