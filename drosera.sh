@@ -29,8 +29,13 @@ if [ "$RAM_TOTAL" -lt 2900 ]; then
   exit 1
 fi
 
-DISK_FREE=$(df -BG / | tail -10 | awk '{print $2}' | sed 's/G//')
+DISK_FREE=$(df -BG / | tail -1 | awk '{print $4}' | sed 's/G//')
+echo "ℹ️  Terdeteksi $DISK_FREE GB ruang kosong di root (/)"
 if [ "$DISK_FREE" -lt 10 ]; then
+  echo "⚠️  Disk space kamu hanya $DISK_FREE GB. Disarankan minimal 10 GB agar node berjalan lancar."
+else
+  echo "✅ Disk space cukup untuk melanjutkan instalasi."
+fi
   echo "❌ Disk space kurang dari 20 GB. Diperlukan minimal 20 GB!"
   exit 1
 fi
